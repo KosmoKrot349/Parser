@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<form method="POST">
+        {% csrf_token %}
+    <table>
+        {{ filter }}
+    </table>
+
+    <input type="submit" value="Send" >
+</form>
+
+
+
+
+ {% if links.count > 0 %}
+    <table>
+        {% for lnk in links %}
+        <tr>
+            <td>{{ lnk.title }}</td>
+            <td><a href="{{ lnk.link }}">Перейти</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+<br>
+<a href="reparse/1">C#</a>
+<br>
+<a href="reparse/2">Petyhon</a>
+</body>
+</html>
